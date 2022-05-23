@@ -1,0 +1,48 @@
+<div class="app-body">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                  <h1>Login</h1>
+
+                  <p class="text-muted">Sign in to your account</p>
+
+                  <div class="form-group">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" formControlName="email" class="form-control" placeholder="Email address" autofocus />
+                    <div class="error" *ngIf="getControls.email.errors">
+                      <div *ngIf="getControls.email.errors.required">Email is required.</div>
+                      <div *ngIf="getControls.email.errors.email">Enter valid email address.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+                    <div class="error" *ngIf="getControls.password.errors">
+                      <div *ngIf="getControls.password.errors.required">Password is required.</div>
+                      <div *ngIf="getControls.password.errors.minLength">Password should contain 8 characters</div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="submit" class="btn btn-primary px-4">Login</button>
+                    </div>
+                    <div class="col-6 text-right">
+                      <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
