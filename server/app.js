@@ -7,10 +7,13 @@ const logger = require('morgan');
 const debug = require('debug')('server:server');
 const http = require('http');
 
+const connectDB = require('./database/connect');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
+//connect Database
+connectDB();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
