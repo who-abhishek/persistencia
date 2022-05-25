@@ -11,6 +11,10 @@ const connectDB = require('./database/connect');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
+const postsRouter = require('./routes/posts');
+const profileRouter = require('./routes/profile');
+
 
 //connect Database
 connectDB();
@@ -26,7 +30,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/posts', postsRouter);
+app.use('/api/profile', profileRouter);
 
 
 
